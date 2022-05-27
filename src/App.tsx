@@ -1,5 +1,7 @@
-import "./styles.css";
-
+import React, { FC, ReactElement } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import TaskList from "./components/TaskList";
 /**
  * This App should:
  *  - Input a task
@@ -13,11 +15,16 @@ import "./styles.css";
  *  - Style the App
  *  - Edit an existing task
  */
-
-export default function App() {
+const App: FC<{}> = (): ReactElement => {
   return (
-    <div className="App">
-      <h1>Hello ToDo List</h1>
-    </div>
+    <>
+      <Header title="Totally Tubular Task Table"></Header>
+      <div className="App">
+        <TaskList tasks={[{ title: "Pony", isCompleted: false }]}></TaskList>
+      </div>
+      <Footer></Footer>
+    </>
   );
-}
+};
+
+export default App;
